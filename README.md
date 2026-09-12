@@ -19,11 +19,6 @@ Also help people develop the skills to learn by themselves.
 Target: anyone who knows how to operate a computer and is interested in low
 level programming and Zig!
 
-help me make small, short, easy to make videos.
-become the "the cherno" of zig,
-end up with a collection of zig videos, that people will keep watching for years
-passive income
-
 if a video becomes outdated, I can always remake it!
 
 
