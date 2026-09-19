@@ -2,7 +2,10 @@
 
 ## All videos:
 
-- Part 0 - Let's learn Zig and Computer stuff [link](https://youtube.com/...)
+Playlist: <https://www.youtube.com/playlist?list=PLc71ACuDC3_M>
+
+- Part 0 - Let's learn Zig and Computer stuff
+  [video link](https://www.youtube.com/watch?v=EEKaVb7Ywl0)
 - Part 1 - Installing Zig [TODO](#TODO)
 - Part 2 - An introduction to computers [TODO](#TODO)
 - Part 3 - Your first Zig program [TODO](#TODO)
