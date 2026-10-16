@@ -13,21 +13,26 @@
     - Operating system (kernel, tty)
     - shell
 
-TODO:
-- [] clearly identify what you want to talk about
-    - present the components of a computer
-    - big model: CPU, Main memory, BUS, disk
-    - how CPU execute a program: cpu reads instruction from memory and execute them
-    - GOALs:
-        - be able to understand how a program written in zig, is compiled and executed by the machine
-        - binary representation?
-- [] split the work into multiple smaller tasks
-    - the CPU, do we talk about the different elements of it?
-        - probably not, keep it high level
-        - do we talk about the cache now? about the MMU?
-    - memory
-    - how electricity is used to represent information
-- [] watch the videos
+GOALs:
+- high level intro to computers
+- know the different parts of computer
+- know how electricity is turned into information
+- know how a program is executed
+- know what compilation is
+- have a mental model of a computer
+
+future videos:
+- install zig + tools
+- your first zig program
+    - compilation, zig build exe, zig run
+    - execution
+    - entry point
+- variables, data type
+- if, else
+- functions
+- the standard library
+- loops..
+- Assignment: guess the number
 
 le plan:
 
@@ -57,9 +62,6 @@ le plan:
         - the program itself
         - any data it needs
 
-shit, I am struggling, like I have a vague idea of what I want to teach, but
-not how, don't know about the order...
-
 
 Maybe a nicer solution is to say:
 - let's look at how a computer execute a program!
@@ -78,23 +80,69 @@ execute. The CPU will range
 
 # SCRIPT
 
+1. Intro
+2. Computer components
+3. Electricity, bits, bytes, binary representation
+4. How programs are executed (high level)
+    - compilation, source code -> assembly -> machine code
+    - code loaded from disk into ram
+    - RAM representation (big array of bytes with an address)
+    - registers, PC pointing to code in memory
+5. The software layer
+    - BIOS/UEFI
+    - Bootloader
+    - Operating system (kernel, tty)
+    - shell
+
 ## 1-intro
 
-Computers come in different shapes and forms. But they share the components
+Computers come in different shapes and forms. But they pretty much share the
+same components.
 
 ## 2-hardware components
 
-- Motherboard
-- CPU or Central Processing Unit is the brain of the computer, the part
-  responsible for executing a program
-- RAM or Random Access Memory, is the main memory that is used by the CPU to
-  read and write data!
-- Drive, or secondary memory, or storage device, is used to stored any data
-  persistently
-- Bus
-- Power supply, to provide electricity to the whole thing
-- Cooling system, all that generates at ton of heat, that needs to be removed to
-  maintain an optimal work environment and avoid damage
+- The **Motherboard** is the spine of the computer, it is the main circuit board
+to which all the other components connect. It has sockets, slots, ports,
+connectors, chips and wires to ensure the communication between all the components.
+- The CPU or Central Processing Unit is the brain of the computer, the part
+responsible for executing program instructions.
+- The RAM or Random Access Memory, is the main memory that is used by the CPU to
+  temporarily store and access data! But it is volatile memory, meaning that
+  all the data stored is lost when the computer is turned off.
+- But this isn't the case for the Drive, the secondary memory, which is used to
+  stored any data persistently.
+  - We usually use a "Hard Disk Drive" (HDD), or a Solid-State Drive (SDD), or
+    both!
+- Computers often comes with a dedicated Graphics card, also known as a GPU,
+  Graphics Processing Unit. It's responsible for rendering images, videos,
+  animations, 3D rendering, or really just any graphical application!
+  - Some CPUs have an integrated GPU, but its performance is limited!
+- All of these components need electricity to work, and it's the role of the
+  Power supply, to provide the required voltages and currents to the whole system.
+- All that generates at ton of heat, that needs to be cooled using fans or
+  liquid cooling to maintain an optimal work environment and avoid damages.
+- Anything else are peripherals. Monitor, mouse, keyboard, printer, microphone,
+  webcam, gaming controller are peripherals, also known as Input and Output
+  devices...
+
+## mental model
+
+Knowing all the different components in details isn't that useful for programmers.
+Instead it's usually preferable to keep a simpler mental model of what a computer
+is. For now, it's going to be very simple, and composed of only 4 parts:
+- the **CPU**, responsible for executing programs,
+- the **RAM**, or main memory responsible for storing the data used by the CPU
+- the **I/O devices**, anything that we'll want to interact with including the
+  disk, keyboard, monitor, network...
+- and the **bus**, the name given to the wires that
+
+but it will evolve with time as we learn more about computers.
+A more accurate model would look like this, showing CPU cores, caches, memory
+controller, PCH... and we will eventually talk about all of this! But the simpler
+model will be sufficient for now!
+
+TODO: describe simple model
+CPU - RAM - DISK,I/O, - BUS
 
 ## 3-electricity, binary data representation, instructions
 
@@ -172,7 +220,7 @@ All information in a computer is represented by a bunch of zeroes and ones.
 
 "As shown in exhibit A"...
 
-[] watch <https://www.youtube.com/watch?v=geBcfKn3B1g> (49min en FR) ----------
+[x] watch <https://www.youtube.com/watch?v=geBcfKn3B1g> (49min en FR) ----------
 
 notes:
 
@@ -265,8 +313,33 @@ Tour d'horizon (~3min30, cool closeup footage):
 35:00
 
 
+-----------------------
+Personal Computer Architecture <https://www.youtube.com/watch?v=_I8CLQazom0>> (18 min)
 
+- CPU: ALU, Control Unit (transform machine-code into microcode), registers
+- old architecture:
+    - CPU <- front side bus -> Northbridge (memory controller)
+    - Northbridge <-- memory bus --> DRAM
+    - Northbridge <-- PCI Express --> Graphics Adapter
+    - Northbridge <-- DMI --> Southbridge
+    - SouthBridge (IO controller) ---> different IO devices
+- modern archi:
+    - CPU, made of:
+        - multiple cores (1 core = ALU, CU, Reg)
+        - cache (L1, L2, L3)
+        - Graphics Controller <-- PCIe --> Graphics adapter
+        - Memory Controller <-- Memory Bus --> DRAM
+    - CPU <-- DMI --> Chipset (PCH)
 
+    - CPU, RAM and chipset must be compatible
+
+- DMI (Direct Media Interface)
+- PCI (Peripheral component interconnect)
+- AGP (Accelerated Graphics Port)
+
+- The motherboard has a crystal oscillator, base clock
+- CPU has special circuits called freq dividers and freq multipliers takes this
+  base clock and "divided/multiply it" to a much higher freq.
 
 -------------------------------------------------------------------------------
 
@@ -293,3 +366,4 @@ maybe not
 # SAUCE
 
 - https://www.youtube.com/watch?v=TfhL5kBiQVI
+- https://www.contec.com/support/basic-knowledge/edge-computing/cpu/

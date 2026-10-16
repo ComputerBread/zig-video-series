@@ -6,9 +6,45 @@ Playlist: <https://www.youtube.com/playlist?list=PLc71ACuDC3_M>
 
 - Part 0 - Let's learn Zig and Computer stuff
   [video link](https://www.youtube.com/watch?v=EEKaVb7Ywl0)
-- Part 1 - Installing Zig [TODO](#TODO)
-- Part 2 - An introduction to computers [TODO](#TODO)
-- Part 3 - Your first Zig program [TODO](#TODO)
+- Part 1  - Installing Zig [TODO](#TODO)
+- Part 2  - An introduction to computers [TODO](#TODO)
+- Part 3  - Your first Zig program [TODO](#TODO)
+- Part 4  - Install Zig and Tools
+- Part 5  - Your first Zig program
+    - "Hello, world!" program, with `std.debug.print`
+    - `zig run`, `zig build-exe`
+- Part 6  - Variables, data types
+- Part 7  - if, else, conditions, boolean
+- Part 8  - functions
+- Part 9  - intro to the standard library
+    - what's a library
+    - read the documentation
+- Part 10 - while loops
+- Part 11 - Assignment 1: a guessing game
+- Part 12 - 
+- Part 13 - 
+- Part 14 - 
+- Part 15 - 
+- Part 16 - 
+- Part 17 - 
+- Part 18 - 
+- Part 19 - 
+- Part 20 - 
+- Part 21 - 
+- Part 22 - 
+- Part 23 - 
+- Part 24 - 
+- Part 25 - 
+- Part 26 - 
+- Part 27 - 
+- Part 28 - 
+- Part 29 - 
+- Part 30 - 
+- Part 31 - 
+- Part 32 - 
+- Part 33 - 
+- Part 34 - 
+- Part ? - Debugging with RADdbg
 - ...
 
 
@@ -42,6 +78,7 @@ if a video becomes outdated, I can always remake it!
     - talk about compilation process!
         - compilation, linker, single compilation unit...
         - `zig build-exe`
+0. Comments
 3. variables, constant and data types
 0. conditions, branching, if, else, switch?
 4. arrays
