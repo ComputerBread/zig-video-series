@@ -104,6 +104,7 @@ same components.
 - The **Motherboard** is the spine of the computer, it is the main circuit board
 to which all the other components connect. It has sockets, slots, ports,
 connectors, chips and wires to ensure the communication between all the components.
+[search for motherboard datasheet, you'll find nice images]
 - The CPU or Central Processing Unit is the brain of the computer, the part
 responsible for executing program instructions.
 - The RAM or Random Access Memory, is the main memory that is used by the CPU to
@@ -134,17 +135,89 @@ is. For now, it's going to be very simple, and composed of only 4 parts:
 - the **RAM**, or main memory responsible for storing the data used by the CPU
 - the **I/O devices**, anything that we'll want to interact with including the
   disk, keyboard, monitor, network...
-- and the **bus**, the name given to the wires that
+- and the **bus**, the name given to the wires that connects the different components
 
 but it will evolve with time as we learn more about computers.
-A more accurate model would look like this, showing CPU cores, caches, memory
-controller, PCH... and we will eventually talk about all of this! But the simpler
-model will be sufficient for now!
+A more accurate model would look like this, showing CPU cores, caches, the memory
+controller, the Platform Controller Hub (PCH)... and we will eventually talk
+about all of this! But the simpler model will be sufficient for now!
 
-TODO: describe simple model
-CPU - RAM - DISK,I/O, - BUS
+But before using this model, we need to learn about electricity and how computers
+represents and store information:
 
 ## 3-electricity, binary data representation, instructions
+
+So, you all know that computers are powered by electricity ; well actually not
+all computers are ... shut up.
+
+Electricity is a physical phenomenon that humans have learned to produce and
+manipulate. We distinguish two main types of electric current:
+
+- alternating current (AC)
+- direct current (DC)
+
+Both are useful, and the power supply converts the alternating current coming
+from the power outlet into direct current that the computer uses.
+I am talking about current, but we usually talk about voltage rather than current.
+The branch 
+
+The electric signal can be either High, or Low.
+The high value can be 12V, 5V, 3V or 1.2V. And the low value is usually 0V.
+But instead of talking about high or low values, we assign the high voltage to
+the number 1, and the low to 0. So if we look at the signal on a wire, we can
+see 0, or 1. And so it gives us the ability to count up to 1. But being able to
+to count up to 1, isn't really that interesting. But if we have 2 wires instead,
+we can have the following signals:
+- both at 0
+- the first one at 0, and second at 1
+- the first one at 1, and second at 0
+- and both at 1.
+Now we have 4 values, which means we can count from 0 to 3!
+If we add a third wire, we end up with 8 possible values.
+Here we see that we can represent numbers using only 0s and 1s. These are called
+binary numbers.
+
+And the way they work isn't that different from how regular numbers work!
+The numbers we are used to use are in "Base 10", because we have 10 symbols,
+from 0 to 9. And we are all used to these numbers, and feel natural to us.
+But we can make some useful observations, take the number 1689*, we can associate
+for each column a power of ten. 10^0 for 9, 10^1 for 8, 10^2 to 6 and 10^3, to
+1, such that if we multiply each digit with it's associated power of ten and take
+the sum, we get 1689.
+(1689: modern binary number system, year of invention by Leibniz)
+
+But with binary digits, we only have two symbols, 0 and 1. So we can use base 2
+to count. Instead of using powers of 10, we use powers of 2. Each power of 2,
+is multiplied by either 0 or 1.
+For example, the binary number 1101, is equal to 1*2^3 + 1*2^2 + 0*2^1 + 1*2^0,
+which is equal to 13.
+The 0s and 1s in a binary number are called "bits", which comes from
+the contraction of "binary digit". A bit is the smallest and most fundamental
+unit of information in computing, the smallest, just a lil bit of information.
+(get it?)
+The more bits you add to a number, the bigger it can get. If you have "n" bits,
+you can encode 2^n values.
+
+Computers don't handle bits individually, but handle "bytes". A byte is 8 bits,
+but historically, the size of a byte was hardware-dependent. But now, whenever
+people talk about bytes, it's safe to assume they are talking about 8 bits.
+
+TODO: ... 'explain a bit more, show an example'
+
+I think that's enough, if you want to know more, there are tons of videos, books
+or articles you can consume. But it's pretty simple, the math is the same, and
+if you need to convert some numbers, you can use a calculator app.
+Maybe I'll make a full video about it, for the sake of completeness...
+
+BASE 16: hexadecimal
+
+binary game: <https://learningcontent.cisco.com/games/binary/index.html>
+
+
+The reason why I am talking about this, is because I want to show you how programs
+are executed by computers!
+
+
 
 ## 4-memory part
 
@@ -165,6 +238,11 @@ RAM uses 1T1C (DRAM)
 Cache uses SRAM 6Transistors per bit
 
 registers store bits in D Flip-flop, 16 transistors per bits
+
+## 5-software layer, operating system
+
+(chatgpt below)
+Modern CPU architectures and operating systems have co-evolved: hardware provides mechanisms for protection, memory management, interrupts, and synchronization, while operating systems build abstractions on top of those mechanisms. The requirements of increasingly sophisticated operating systems, in turn, have influenced CPU architecture.
 
 ----
 
@@ -343,9 +421,13 @@ Personal Computer Architecture <https://www.youtube.com/watch?v=_I8CLQazom0>> (1
 
 -------------------------------------------------------------------------------
 
-
 [] (57 min) digital electronics - the first video you should watch <https://www.youtube.com/watch?v=pDELW2pIvWw>
-[] PC architecture <https://youtu.be/_I8CLQazom0?si=IL8OkccuWxD3bu9V&t=316> (18 min)
+
+- bit (a little bit), but originally comes from the contraction of "binary digit"
+
+
+
+[x] PC architecture <https://youtu.be/_I8CLQazom0?si=IL8OkccuWxD3bu9V&t=316> (18 min)
 [] (19 min) Architecture All Access: Modern CPU arch PART 1 <https://www.youtube.com/watch?v=vgPFzblBh7w>
 [] (25 min) Part 2 <https://www.youtube.com/watch?v=o_WXTRS2qTY>
 [] smallest "hello world" <https://www.youtube.com/watch?v=BdMkqouFbBw>
