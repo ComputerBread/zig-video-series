@@ -202,7 +202,58 @@ Computers don't handle bits individually, but handle "bytes". A byte is 8 bits,
 but historically, the size of a byte was hardware-dependent. But now, whenever
 people talk about bytes, it's safe to assume they are talking about 8 bits.
 
-TODO: ... 'explain a bit more, show an example'
+The byte is kind of the unit of computation, it's used to refer to RAM and disk
+space, the speed of your internet connection or the size of a file for example.
+And most data is expressed in bytes. Because computers are designed to handle
+at the minimum 8 bits at a time!
+
+But we can use multiple bytes together. We usually use "power of two" bytes, so
+1, 2, 4, 8, 16, 32, 64 and so on, but nothing stops us from using arbitrary
+numbers of bytes.
+
+For example, one byte can represent numbers from 0 to 255. Using two bytes, we
+can represent numbers up to 65,535. With 4 bytes, we can go up to more than 4
+billion.
+
+But here, I am only talking about natural numbers, also known as unsigned integers.
+But we have other types of numbers, like negative numbers, or decimal numbers.
+How do we represent them? And what about other types of data, like letters or
+images?
+
+Well, we need to give a specific meaning to the bits. And that meaning, the
+way we represent information in binary is usually defined by standards, by
+conventions, followed by most people in the industry...
+
+So if we want to represent negative number, we'll usually use "Two's complement". 
+For example, to represent -31 one one byte, we say that the left-most bit
+represent negative 128. 
+-128 + x = -31, x = 97, we use the other bits to represent 97 => 0b1100001
+-31 => 0b11100001
+If we do the addition: -128 + 64 + 32 + 1, we get -31.
+
+For decimal number, we'll use a floating point representation, the usual one
+is IEEE 754.
+
+For letters, we will use tables.
+Like ASCII that associate a character for each number in a byte!
+But one byte is not enough to represent all characters of all the existing
+languages in the world, so you've probably heard of UTF. 
+// §§§§§§§ TODO: finish this part
+And if you want to know more, I have an older video about this, I think it's
+pretty good!
+
+
+I am skimming through this, because the message I am really trying to convey,
+is that the bits can represent anything, it's a man made-invention, you just
+need to know how to convert the bits into the data you care about! And vice-versa.
+But for the computers, they don't really have any meaning, it's just a bunch of
+0s and 1s, or more accurately, low and high voltages!
+
+
+As I said, these are standards, defined by some organizations, or companies that
+have been proven to be useful, but nothing stops us to create our own.
+
+
 
 I think that's enough, if you want to know more, there are tons of videos, books
 or articles you can consume. But it's pretty simple, the math is the same, and
@@ -217,6 +268,8 @@ binary game: <https://learningcontent.cisco.com/games/binary/index.html>
 The reason why I am talking about this, is because I want to show you how programs
 are executed by computers!
 
+
+[] the math is the same!
 
 
 ## 4-memory part
