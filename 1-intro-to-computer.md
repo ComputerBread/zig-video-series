@@ -242,6 +242,9 @@ languages in the world, so you've probably heard of UTF.
 And if you want to know more, I have an older video about this, I think it's
 pretty good!
 
+For colors, we can represent them using 3 bytes, 1 byte for red, green and blue.
+Which is enough to represent more than 16 millions colors!
+256×256×256 = 16777216 colors
 
 I am skimming through this, because the message I am really trying to convey,
 is that the bits can represent anything, it's a man made-invention, you just
